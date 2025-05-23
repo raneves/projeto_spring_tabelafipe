@@ -89,22 +89,13 @@ public class Principal {
         return conversor.obterDados(json, Modelos.class);
     }
 
-//    private void exibirModelos(Modelos modeloLista) {
-//        System.out.println("\nModelos dessa marca:");
-//        modeloLista.modelos().stream()    // Cria fluxo sequencial dos modelos
-//                   .sorted(Comparator.comparing(Dados::codigo)) // Ordena modelos pelo código crescente
-//                   .forEach(System.out::println); // Imprime cada modelo no console
-//    }
-    
     private void exibirModelos(Modelos modeloLista) {
         System.out.println("\nModelos dessa marca:");
         modeloLista.modelos().stream()    // Cria fluxo sequencial dos modelos
-        .sorted(Comparator.comparing(d -> d.nome().toLowerCase())) // Ordena modelos ordem alfabetica
-        .forEach(System.out::println);
-
+                   .sorted(Comparator.comparing(Dados::codigo)) // Ordena modelos pelo código crescente
+                   .forEach(System.out::println); // Imprime cada modelo no console
     }
-
-
+    
     private String solicitarNomeVeiculo() {
         System.out.println("\nDigite um trecho do nome do veículo a ser buscado:");
         return leitura.nextLine(); // Lê texto digitado pelo usuário
